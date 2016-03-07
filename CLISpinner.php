@@ -30,7 +30,7 @@ class CLISpinner
      * Get the spinners list
      * @return bool
      */
-    public function getSpinners()
+    private function getSpinners()
     {
         if($this->spinners = file_get_contents($this->spinners)){
             $this->spinners = json_decode($this->spinners);
@@ -44,7 +44,7 @@ class CLISpinner
      * @param $spinner
      * @return bool
      */
-    public function setSpinner($spinner){
+    private function setSpinner($spinner){
         if($this->spinner = $this->spinners->$spinner){
             unset($this->spinners);
             return true;
@@ -55,7 +55,7 @@ class CLISpinner
     /**
      * Show the spinner
      */
-    public function showSpinner()
+    private function showSpinner()
     {
         while(1){
             foreach($this->spinner->frames as $frame){
