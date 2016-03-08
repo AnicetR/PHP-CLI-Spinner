@@ -35,8 +35,10 @@ class CLISpinner
     {
         if ($this->spinners = file_get_contents($this->spinners)) {
             $this->spinners = json_decode($this->spinners);
+
             return true;
         }
+
         return false;
     }
 
@@ -44,14 +46,17 @@ class CLISpinner
      * Set the spinner.
      *
      * @param $spinner
+     *
      * @return bool
      */
     private function setSpinner($spinner)
     {
         if ($this->spinner = $this->spinners->$spinner) {
             unset($this->spinners);
+            
             return true;
         }
+
         return false;
     }
 
@@ -62,8 +67,8 @@ class CLISpinner
     {
         while (1){
             foreach ($this->spinner->frames as $frame){
-                echo chr(27) . '[0G';
-                echo $frame . ' ' . $this->message . '\r';
+                echo chr(27).'[0G';
+                echo $frame.' '.$this->message.'\r';
                 usleep($this->spinner->interval * 1000);
             }
         };
