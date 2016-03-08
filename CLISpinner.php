@@ -21,8 +21,9 @@ class CLISpinner
     public function __construct($spinner, $message = '')
     {
         $this->message = $message;
-        if ($this->getSpinners() && $this->setSpinner($spinner))
-                $this->showSpinner();
+        if ($this->getSpinners() && $this->setSpinner($spinner)) {
+            $this->showSpinner();
+        }
     }
 
     /**
@@ -32,8 +33,7 @@ class CLISpinner
      */
     private function getSpinners()
     {
-        if ($this->spinners = file_get_contents($this->spinners))
-        {
+        if ($this->spinners = file_get_contents($this->spinners)) {
             $this->spinners = json_decode($this->spinners);
             return true;
         }
@@ -46,10 +46,8 @@ class CLISpinner
      * @param $spinner
      * @return bool
      */
-    private function setSpinner($spinner)
-    {
-        if ($this->spinner = $this->spinners->$spinner)
-        {
+    private function setSpinner($spinner) {
+        if ($this->spinner = $this->spinners->$spinner) {
             unset($this->spinners);
             return true;
         }
