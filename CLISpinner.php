@@ -64,7 +64,7 @@ class CLISpinner
      */
     private function showSpinner()
     {
-        while (1){
+        while (1) {
             foreach ($this->spinner->frames as $frame) {
                 echo chr(27).'[0G';
                 echo $frame.' '.$this->message.'\r';
@@ -72,5 +72,4 @@ class CLISpinner
             }
         };
     }
-
 }
