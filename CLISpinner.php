@@ -15,7 +15,6 @@ class CLISpinner
      * CLISpinner constructor.
      *
      * @param $spinner string Spinner you wants to be shown
-     *
      * @param $message string optionnal Message you wants to be shown right to the spinner.
      */
     public function __construct($spinner, $message = '')
@@ -53,7 +52,7 @@ class CLISpinner
     {
         if ($this->spinner = $this->spinners->$spinner) {
             unset($this->spinners);
-            
+
             return true;
         }
 
@@ -66,11 +65,12 @@ class CLISpinner
     private function showSpinner()
     {
         while (1){
-            foreach ($this->spinner->frames as $frame){
+            foreach ($this->spinner->frames as $frame) {
                 echo chr(27).'[0G';
                 echo $frame.' '.$this->message.'\r';
                 usleep($this->spinner->interval * 1000);
             }
         };
     }
+
 }
