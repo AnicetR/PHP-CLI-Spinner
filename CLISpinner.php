@@ -46,7 +46,8 @@ class CLISpinner
      * @param $spinner
      * @return bool
      */
-    private function setSpinner($spinner) {
+    private function setSpinner($spinner)
+    {
         if ($this->spinner = $this->spinners->$spinner) {
             unset($this->spinners);
             return true;
